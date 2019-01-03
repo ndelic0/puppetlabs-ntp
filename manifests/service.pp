@@ -1,9 +1,9 @@
+# @summary
+#   This class handles the ntp service.
 #
-class ntp::service inherits ntp {
-
-  if ! ($ntp::service_ensure in [ 'running', 'stopped' ]) {
-    fail('service_ensure parameter must be running or stopped')
-  }
+# @api private
+#
+class ntp::service {
 
   if $ntp::service_manage == true {
     service { 'ntp':
